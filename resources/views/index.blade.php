@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Agency - Start Bootstrap Theme</title>
+        <title>welcome</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="..." /></a>
+                <a class="navbar-brand" href="#page-top"><i class="fa-solid fa-wind"></i> AirconPro</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Galery</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -39,7 +39,7 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Studio!</div>
+                <div class="masthead-subheading">Welcome To Our Service!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
             </div>
@@ -54,28 +54,44 @@
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                            <i class="fa-solid fa-snowflake fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Service Maintenance</h4>
-                        <p class="text-muted">Overhoul Indoor Unit</p>
-                        <p class="text-muted">Overhoul Outdoor Unit</p>
-                        <p class="text-muted">General Cek & Cleaning</p>
+                        <h4 class="my-3">Service Maintenance Berkala</h4>
+                        <p class="text-muted">Cleaning Indoor, Cleaning Outdoor, Cek Tekanan Freon</p>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-solid fa-hands fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Instalasi Baru</h4>
+                        <p class="text-muted">Jasa Pemasangan Unit Baru</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                            <i class="fa-solid fa-people-arrows fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Bongkar Pasang Instalasi</h4>
+                        <p class="text-muted">Jasa Bongkar Unit Lama dan Pasang Unit Baru atau Reposisi Unit AC</p>
                     </div>
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                            <i class="fa-solid fa-dolly fa-stack-1x fa-inverse"></i>
                         </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                        <h4 class="my-3">Overhoul Indoor/Outdoor Unit</h4>
+                        <p class="text-muted">Jasa Overhoul Indoor atau Outdoor Unit, penggantian unit kompresor</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-solid fa-toolbox fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Perbaikan Instalasi Pipa/Refrigerant</h4>
+                        <p class="text-muted">Perbaikan dengan pengelasan pipa, perbaikan dengan pengelasan pada area indoor atau outdoor unit</p>
                     </div>
                 </div>
             </div>
@@ -84,8 +100,7 @@
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
                 <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Portfolio</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading text-uppercase">Galery</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-sm-6 mb-4">
@@ -98,8 +113,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Threads</div>
-                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                                <div class="portfolio-caption-heading">Indoor Unit</div>
+                                <div class="portfolio-caption-subheading text-muted">Cleaning Indoor Unit</div>
                             </div>
                         </div>
                     </div>
@@ -113,8 +128,8 @@
                                 <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                                <div class="portfolio-caption-heading">Outdoor Unit</div>
+                                <div class="portfolio-caption-subheading text-muted">Cleaning Outdoor Unit</div>
                             </div>
                         </div>
                     </div>
@@ -128,12 +143,12 @@
                                 <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
                             </a>
                             <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Finish</div>
-                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                                <div class="portfolio-caption-heading">Tambah Freon</div>
+                                <div class="portfolio-caption-subheading text-muted">Penambahan Freon</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    {{-- <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
                         <!-- Portfolio item 4-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
@@ -177,7 +192,7 @@
                                 <div class="portfolio-caption-subheading text-muted">Photography</div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
@@ -186,9 +201,8 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
-                <ul class="timeline">
+                {{-- <ul class="timeline">
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
                         <div class="timeline-panel">
@@ -240,7 +254,7 @@
                             </h4>
                         </div>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
         </section>
         <!-- Team-->
@@ -248,9 +262,9 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    {{-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> --}}
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
@@ -281,14 +295,14 @@
                             <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
                 </div>
             </div>
         </section>
         <!-- Clients-->
-        <div class="py-5">
+        {{-- <div class="py-5">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-3 col-sm-6 my-3">
@@ -305,21 +319,23 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container">
                 <div class="text-center">
+                    <a class="btn btn-primary btn-xl text-uppercase" href="#services">Contact
+                    <p><i class="fa-brands fa-square-whatsapp " style="font-size:10rem"></i></p>
+                </a>
+
+            </div>
+        </div>
+
+            {{-- <div class="container">
+                <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
+
                 <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
@@ -348,10 +364,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
+                    <
                     <div class="d-none" id="submitSuccessMessage">
                         <div class="text-center text-white mb-3">
                             <div class="fw-bolder">Form submission successful!</div>
@@ -360,21 +373,18 @@
                             <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                         </div>
                     </div>
-                    <!-- Submit error message-->
-                    <!---->
-                    <!-- This is what your users will see when there is-->
-                    <!-- an error submitting the form-->
+
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    <!-- Submit Button-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services"><i class="fa-brands fa-square-whatsapp"></i></a>
+
                 </form>
-            </div>
+            </div> --}}
         </section>
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy;  AirconPro 2024</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -398,11 +408,10 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <h2 class="text-uppercase">Cleaning Indoor Unit</h2>
+                                    <p class="item-intro text-muted">Cleaning Indoor Unit Termasuk Didalam Paket Jasa Maintenance Berkala</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
+                                    {{-- <ul class="list-inline">
                                         <li>
                                             <strong>Client:</strong>
                                             Threads
@@ -411,10 +420,10 @@
                                             <strong>Category:</strong>
                                             Illustration
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
-                                        Close Project
+                                        Close
                                     </button>
                                 </div>
                             </div>
@@ -433,11 +442,11 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <h2 class="text-uppercase">Cleaning Outdoor Unit</h2>
+                                    <p class="item-intro text-muted">Cleaning Outdoor Unit Termasuk Didalam Paket Jasa Maintenance Berkala</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
+                                    {{-- <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p> --}}
+                                    {{-- <ul class="list-inline">
                                         <li>
                                             <strong>Client:</strong>
                                             Explore
@@ -446,10 +455,10 @@
                                             <strong>Category:</strong>
                                             Graphic Design
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
-                                        Close Project
+                                        Close
                                     </button>
                                 </div>
                             </div>
@@ -468,11 +477,11 @@
                             <div class="col-lg-8">
                                 <div class="modal-body">
                                     <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <h2 class="text-uppercase">Penambahan Freon</h2>
+                                    <p class="item-intro text-muted">Proses Penambahan Freon Dikarenakan Teknan Tidak Stanadar</p>
                                     <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
+                                    {{-- <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p> --}}
+                                    {{-- <ul class="list-inline">
                                         <li>
                                             <strong>Client:</strong>
                                             Finish
@@ -481,10 +490,10 @@
                                             <strong>Category:</strong>
                                             Identity
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                         <i class="fas fa-xmark me-1"></i>
-                                        Close Project
+                                        Close
                                     </button>
                                 </div>
                             </div>
@@ -493,7 +502,7 @@
                 </div>
             </div>
         </div>
-        <!-- Portfolio item 4 modal popup-->
+        {{-- <!-- Portfolio item 4 modal popup-->
         <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -597,7 +606,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
