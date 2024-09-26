@@ -244,7 +244,16 @@ sub {
 sup {
   top: -0.5em;
 }
+.whatsapp-link {
+    font-size: 10rem;
+    border-radius: 100%;
+    color: #25D366;
+    transition: color 0.3s ease;
+}
 
+.whatsapp-link:hover {
+    color: #0066ff;
+}
 a {
   color: var(--bs-link-color);
   text-decoration: underline;

@@ -15,9 +15,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    $value = Config::get('app.timezone');
-return $value;
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/user', [UserController::class, 'index']);
