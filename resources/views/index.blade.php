@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <meta name="description" content="AirConPro menyediakan layanan service AC jakarta dan kota tangerang yang profesional dengan teknisi berpengalaman. Hubungi kami untuk layanan terbaik.">
 
-        <title>Jasa Service AC Profesional | AirConPro</title>
+        <title>Jasa Service AC| AirConPro</title>
 
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -23,7 +23,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><i class="fa-solid fa-wind"></i> AirconPro</a>
+                <a class="navbar-brand" href="#page-top"><i class="fa-solid fa-wind"></i> AirconPro | Jasa Service AC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -33,8 +33,35 @@
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Galery</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        {{-- <li class="nav-item"><a class="nav-link" href="#team">Team</a></li> --}}
+                        <li class="nav-item"><a class="nav-link" href="#tips">Tips</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pricelist">Price list</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
+
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
                     </ul>
                 </div>
             </div>
@@ -42,14 +69,27 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container">
-                <div class="masthead-subheading">Welcome To Our Service!</div>
-                <div class="masthead-heading text-uppercase">
+                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587); ">Jasa Service AC Daerah Tangerang</h1></div>
+                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Barat</h1></div>
+                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Utara</h1></div>
+                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Pusat</h1></div>
+                {{-- <div class="masthead-heading text-uppercase">
                    <h1>Jasa Service AC Jakarta</h1>
                 </div>
                 <div class="masthead-heading text-uppercase">
                     <h1>Jasa Service AC Kota tangerang</h1>
-                 </div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+                 </div> --}}
+                {{-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> --}}
+                {{-- <a style="background: none" class="btn btn-primary btn-xl text-uppercase" href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" >
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a> --}}
+
+                {{-- <a style="background: none" href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" class="whatsapp-link ">
+                    <i class="fa-brands fa-whatsapp" style="background-color: rgb(80 68 68); border-radius:10%"></i>
+                </a> --}}
+
+                {{-- <h4 style="color: black; background-color: rgba(227, 221, 221, 0.587);" >Contact</h4> --}}
+
             </div>
         </header>
         <!-- Services-->
@@ -242,26 +282,99 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
+                    {{-- <li class="timeline-inverted">
                         <div class="timeline-image" style="background: none">
-                            <a href="https://wa.me/6281219925055?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik" class="whatsapp-link">
+                            <a href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" class="whatsapp-link">
                                 <i class="fa-brands fa-whatsapp"></i>
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </section>
-        <!-- Team-->
-        <section class="page-section bg-light" id="team">
+        <!-- tips-->
+        <section class="page-section bg-light" id="tips">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach ($Posts as $post)
+                    <div class="col">
+                        <a href="#!" class="text-decoration-none text-dark">
+                            <div class="card h-100">
+                                <img src="assets/img/tips.jpg" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $post->title }}</h5>
+                                    <p class="card-text">{{ $post->body }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary">{{ $post->created_at }}</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
 
+        </section>
+
+        <section class="page-section bg-light" id="pricelist">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Price List Jasa Service AC</h2>
+                </div>
+
+                <form action="{{ route('checkout') }}" method="POST">
+                    @csrf
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        @foreach ($prices as $price)
+                            <div class="col">
+                                <div class="card h-100">
+                                    <img src="assets/img/ac-split-wall.jpg" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $price->deskripsi }}</h5>
+                                        <p class="card-text">{{ $price->list_pekerjaan }}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-body-secondary">{{ $price->tipe }} {{ $price->kapasitas }} : Rp. {{ $price->harga }}</small>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="service_items[{{ $price->id }}][id]" value="{{ $price->id }}" id="service_{{ $price->id }}">
+                                            <label class="form-check-label" for="service_{{ $price->id }}">Pilih Jasa</label>
+                                           <div class="col"> <label>Qty :</label>
+                                            <input type="number" class="form-control" name="service_items[{{ $price->id }}][qty]" min="1" value="1" placeholder="Jumlah">
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-4">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama:</label>
+                            <input type="text" class="form-control" id="name" name="name" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telepon:</label>
+                            <input type="text" class="form-control" id="phone" name="phone" required autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address:</label>
+                            <input type="text" class="form-control" id="address" name="address" required autocomplete="off">
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="btn btn-primary" style="font-size: -webkit-xxx-large">Checkout</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
 
         <!-- Contact-->
         <section class="page-section" id="contact">
             <div class="container" >
                 <div class="text-center">
-                    <a style="background: none" href="https://wa.me/6281219925055?text=terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik" class="whatsapp-link">
+                    <a style="background: none" href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" class="whatsapp-link">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
             </div>
@@ -274,9 +387,17 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 text-lg-start">Copyright &copy;  AirconPro 2024</div>
                     <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/airconpro_services/" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a class="btn btn-dark btn-social mx-2" href="mailto:airconpro.services@gmail.com" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.tiktok.com/@airconpro_services" aria-label="Tiktok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+
                     </div>
                     <div class="col-lg-4 text-lg-end">
                         <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
@@ -470,12 +591,14 @@
 
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-XXXXX-Y');
-</script>
+    <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RL5M95KZQ"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-0RL5M95KZQ');
+        </script>
 
 </html>
