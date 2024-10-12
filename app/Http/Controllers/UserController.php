@@ -91,8 +91,11 @@ class UserController extends Controller
 
     public function tangerang()
     {
+
         $Posts = Post::all();
-        return view('index', compact('Posts'));
+        $prices = Pricelist::all();
+        return view('indextangerang', compact('Posts', 'prices'));
+
 
     }
 
