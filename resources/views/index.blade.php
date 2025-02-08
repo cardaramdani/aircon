@@ -5,9 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <meta name="description" content="AirConPro menyediakan layanan service AC jakarta dan kota tangerang yang profesional dengan teknisi berpengalaman. Hubungi kami untuk layanan terbaik.">
-
-        <title>Jasa Service AC| AirConPro</title>
 
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -18,6 +15,57 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+            <!-- Existing meta tags -->
+
+            <!-- Enhanced meta description -->
+            <meta name="description" content="AirConPro - Jasa service AC profesional di Jakarta dan Tangerang. Layanan service AC terpercaya, bergaransi, teknisi berpengalaman. Spesialis AC split wall, cassette, ducting. Tersedia 24/7 ☎ 082298520919" />
+
+            <!-- Additional meta tags for SEO -->
+            <meta name="keywords" content="service ac jakarta, service ac tangerang, jasa service ac, teknisi ac, perbaikan ac, maintenance ac, instalasi ac baru, service ac murah, service ac 24 jam" />
+            <meta name="robots" content="index, follow" />
+            <meta name="author" content="AirConPro" />
+
+            <!-- Open Graph tags for social media -->
+            <meta property="og:title" content="Jasa Service AC Profesional Jakarta & Tangerang | AirConPro" />
+            <meta property="og:description" content="Layanan service AC terpercaya di Jakarta dan Tangerang. Teknisi berpengalaman, bergaransi, tersedia 24/7. Hubungi 082298520919" />
+            <meta property="og:image" content="https://airconpro.com/assets/img/logo.jpg" />
+            <meta property="og:url" content="https://airconpro.com" />
+
+            <!-- Schema.org markup for Google -->
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "AirConPro",
+              "image": "https://airconpro.com/assets/img/logo.jpg",
+              "description": "Jasa service AC profesional di Jakarta dan Tangerang dengan teknisi berpengalaman",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jakarta Barat",
+                "addressLocality": "Jakarta",
+                "addressRegion": "DKI Jakarta",
+                "postalCode": "11460",
+                "addressCountry": "ID"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -6.1751,
+                "longitude": 106.8272
+              },
+              "url": "https://airconpro.com",
+              "telephone": "+6282298520919",
+              "priceRange": "Rp100.000 - Rp5.000.000",
+              "openingHours": "Mo-Su 00:00-24:00",
+              "sameAs": [
+                "https://www.instagram.com/airconpro_services/",
+                "https://www.tiktok.com/@airconpro_services"
+              ]
+            }
+            </script>
+
+            <title>Jasa Service AC Jakarta & Tangerang | Teknisi Profesional 24/7 | AirConPro</title>
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -68,29 +116,24 @@
         </nav>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container">
+            <h1>Jasa Service AC Professional Jakarta & Tangerang</h1>
+            <section class="services">
+                <h2>Layanan Service AC Kami</h2>
+                <div class="service-item">
+                    <h3>Service Maintenance Berkala</h3>
+                    <p>Layanan lengkap maintenance AC meliputi:</p>
+                    <!-- Content -->
+                </div>
+            </section>
+
+
+            {{-- <div class="container">
                 <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587); ">Jasa Service AC Daerah Tangerang</h1></div>
                 <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Barat</h1></div>
                 <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Utara</h1></div>
                 <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Pusat</h1></div>
-                {{-- <div class="masthead-heading text-uppercase">
-                   <h1>Jasa Service AC Jakarta</h1>
-                </div>
-                <div class="masthead-heading text-uppercase">
-                    <h1>Jasa Service AC Kota tangerang</h1>
-                 </div> --}}
-                {{-- <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a> --}}
-                {{-- <a style="background: none" class="btn btn-primary btn-xl text-uppercase" href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" >
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a> --}}
 
-                {{-- <a style="background: none" href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" class="whatsapp-link ">
-                    <i class="fa-brands fa-whatsapp" style="background-color: rgb(80 68 68); border-radius:10%"></i>
-                </a> --}}
-
-                {{-- <h4 style="color: black; background-color: rgba(227, 221, 221, 0.587);" >Contact</h4> --}}
-
-            </div>
+            </div> --}}
         </header>
         <!-- Services-->
         <section class="page-section" id="services">
@@ -158,7 +201,11 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                                <img src="assets/img/portfolio/1.jpg"
+                                    alt="Service AC Tangerang - Cleaning Indoor Unit AC Split Wall"
+                                    width="800"
+                                    height="600"
+                                    loading="lazy" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Indoor Unit</div>
@@ -173,7 +220,13 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
+                                {{-- <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." /> --}}
+                                <!-- Update all image tags with proper alt texts -->
+                                <img src="assets/img/portfolio/2.jpg"
+                                    alt="Service AC Tangerang - Cleaning Outdoor Unit AC Split Wall"
+                                    width="800"
+                                    height="600"
+                                    loading="lazy" />
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Outdoor Unit</div>
@@ -188,7 +241,12 @@
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
+                                <img src="assets/img/portfolio/3.jpg"
+                                    alt="Service AC Tangerang - Penambahan Freon AC Split Wall"
+                                    width="800"
+                                    height="600"
+                                    loading="lazy" />
+
                             </a>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">Tambah Freon</div>
@@ -282,13 +340,7 @@
                             </div>
                         </div>
                     </li>
-                    {{-- <li class="timeline-inverted">
-                        <div class="timeline-image" style="background: none">
-                            <a href="https://wa.me/6282298520919?text=Terimakasih%20telah%20mempercayakan%20sistem%20pendinginan%20anda%20kepada%20kami,%20kami%20akan%20selalu%20memberikan%20service%20sistem%20pendinginan%20terbaik.%20Beritahu%20kami%20masalah%20sistem%20pendinginan%20anda,%20agar%20solusi%20anda%20dapatkan" class="whatsapp-link">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </li> --}}
+
                 </ul>
             </div>
         </section>
@@ -479,111 +531,15 @@
                 </div>
             </div>
         </div>
-        {{-- <!-- Portfolio item 4 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        <div class="related-services">
+            <h3>Layanan Terkait</h3>
+            <ul>
+                <li><a href="/service-ac-jakarta-barat">Service AC Jakarta Barat</a></li>
+                <li><a href="/service-ac-jakarta-utara">Service AC Jakarta Utara</a></li>
+                <li><a href="/service-ac-tangerang">Service AC Tangerang</a></li>
+            </ul>
         </div>
-        <!-- Portfolio item 5 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio item 6 modal popup-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Project Name</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Window
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Photography
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-xmark me-1"></i>
-                                        Close Project
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -600,5 +556,33 @@
 
         gtag('config', 'G-0RL5M95KZQ');
         </script>
+
+        @push('scripts')
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "AirConPro",
+            "image": "{{ asset('assets/img/logo.jpg') }}",
+            "description": "Jasa service AC profesional di Jakarta dan Tangerang dengan teknisi berpengalaman",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "jl kh amsir",
+                "addressLocality": "Cipondoh",
+                "addressRegion": "Kota Tangerang",
+                "postalCode": "15145",
+                "addressCountry": "ID"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -6.1916387614380834,
+                "longitude": 106.69099229462232
+            },
+            "url": "https://airconpro.engineeringlife.id",
+            "telephone": "+6282298520919",
+            "priceRange": "Rp100.000 - Rp5.000.000"
+        }
+        </script>
+        @endpush
 
 </html>

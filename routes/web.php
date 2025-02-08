@@ -8,6 +8,8 @@ use App\Http\Controllers\PricelistController;
 use App\Http\Controllers\RolepermissionController;
 use App\Http\Controllers\ServiceItemController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WorkorderController;
+use App\Http\Controllers\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,14 @@ use App\Http\Controllers\CheckoutController;
 |
 */
 Auth::routes();
+
+// In web.php routes file
+
+// Tambahkan di bawah route yang sudah ada
+Route::get('/service-ac-jakarta', [ServiceController::class, 'jakarta'])->name('service.jakarta');
+Route::get('/service-ac-tangerang', [ServiceController::class, 'tangerang'])->name('service.tangerang');
+Route::get('/service-ac-jakarta/{area}', [ServiceController::class, 'jakartaArea'])->name('service.jakarta.area');
+
 Route::get('/', [UserController::class, 'index']);
 Route::get('/jasa-service-ac-tangerang', [UserController::class, 'tangerang']);
 Route::get('/services', [ServiceItemController::class, 'index'])->name('services.index');
@@ -39,9 +49,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/pricelist/store', [PricelistController::class, 'store'])->name('pricelist.store');
     Route::delete('/pricelist/delete/{id}', [PricelistController::class, 'destroy'])->name('pricelist.destroy');
 
+    //wo
+    Route::get('/workorder', [WorkorderController::class, 'index'])->name('workorder.index');
+    Route::get('/workorder/create', [WorkorderController::class, 'create'])->name('workorder.create');
+    Route::get('/workorder/show', [WorkorderController::class, 'show'])->name('workorder.show');
+    Route::get('/workorder/edit/{id}', [WorkorderController::class, 'edit'])->name('workorder.edit');
+    Route::post('/workorder/store', [WorkorderController::class, 'store'])->name('workorder.store');
+    Route::delete('/workorder/delete/{id}', [WorkorderController::class, 'destroy'])->name('workorder.destroy');
 
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+	Route::get('/count/notif', [ServiceItemController::class, 'index'])->name('count.notif');
+
 
     Route::get('/users', [UserController::class, 'users'])->name('users.index');
 

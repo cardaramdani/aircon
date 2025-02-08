@@ -60,19 +60,19 @@
                     </div>
                 </div>
             </div>
-            @role('Super_Admin|Admin')
+            @role('Super-Admin|Admin')
             <div class="row">
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card board1 fill">
-                        <div class="card-body btn-light" onclick="event.preventDefault();document.getElementById('form-ijin').submit();">
-                            <form id="form-ijin" action="/form/ijin" method="get" style="display: none;">
+                        <div class="card-body btn-light" onclick="event.preventDefault();document.getElementById('workorder').submit();">
+                            <form id="workorder" action="/workorder" method="get" style="display: none;">
                                 @csrf
                             </form>
                             <div class="dash-widget-header ">
                                 <div>
-                                    <h3 class="card_widget_header" id="count_leave"></h3>
-                                    <h6 class="text-muted">Request</h6> </div>
-                                    <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#009688" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather ">
+                                    <h3 class="card_widget_header" id="count_leave" style="color: #0066ff"></h3>
+                                    <h6 class="text-muted">Work Order</h6> </div>
+                                    <div class="ml-auto mt-md-3 mt-lg-0"><span class="opacity-7 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#009688" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather ">
                                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z">
                                         </path>
                                         <polyline points="14 2 14 8 20 8"></polyline>
@@ -235,25 +235,24 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            setInterval(getkontrak, 5000);
+            // setInterval(getkontrak, 5000);
 
-            function getkontrak() {
-                    $.ajax({
-                        url: '/kontrak/now',
-                        type: 'GET',
-                        success: function(data) {
-                           console.log(data);
-                        }
-                    });
-}
-
+            // function getkontrak() {
+            //         $.ajax({
+            //             url: '/kontrak/now',
+            //             type: 'GET',
+            //             success: function(data) {
+            //                console.log(data);
+            //             }
+            //         });
+            //     }
             $.ajax({
                     type: 'GET',
                     url: '/count/notif',
                     success:function(data){
 
                         var isi_data =JSON.parse(data);
-                        // console.log(isi_data[0]['peminta']);
+                        // console.log(isi_data[0]);
                         $('#count_leave').html(isi_data.length); //valuenya tambah pegawai baru
 
                         $('#body-list-request').empty();
