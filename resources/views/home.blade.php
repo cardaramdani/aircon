@@ -173,10 +173,10 @@
                                     <thead>
                                         <tr>
                                             <th>Request Type</th>
+                                            <th>Address</th>
                                             <th>Name</th>
-                                            <th>Start</th>
-                                            <th>End</th>
-                                            <th>Leave Reason</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

@@ -93,14 +93,14 @@
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="jenisac">Pilih Service Item</label>
-
                                                         <select id="jenisac" name="jenisac" class="custom-select" >
                                                         <option value="" >Pilih Jenis Ac</option>
+                                                        <option value="Splite Wall" >Splite Wall</option>
 
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="jenisac">Pilih Service Item</label>
+                                                        <label for="workorder">Pilih Service Item</label>
 
                                                         <select id="workorder" name="workorder" class="custom-select" >
                                                         <option value="" >Pilih Kapasitas Ac</option>
@@ -108,7 +108,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="jenisac">Pilih Service Item</label>
+                                                        <label for="deskripsi">Pilih Service Item</label>
 
                                                         <select id="deskripsi" name="deskripsi" class="custom-select" >
                                                         <option value="" >Jenis Maintenance</option>
@@ -116,6 +116,17 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="qty">Jumlah Unit (Qty)</label>
+                                                    <input id="qty" type="number" class="form-control" name="qty" value="1" min="1" required>
+                                                  </div>
+
+                                                  <div class="form-group" id="item">
+                                                    <select class="custom-select" name="items[]" id="items">
+                                                        <!-- Pilihan untuk select #part -->
+                                                    </select>
+                                                </div>
+
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <div class="form-group mb-0">
@@ -145,9 +156,9 @@
 
 @section('script')
     <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script> --}}
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"
     integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
@@ -223,48 +234,22 @@
             function load_data(from_date = '', to_date = '') {
                 $('#table_workorder').DataTable({
                     processing: true,
-                    serverSide: true, //aktifkan server-side
+                    serverSide: true,
+                    destroy: true, // mencegah duplikasi table
                     ajax: {
                         url: "{{ route('workorder.index') }}",
                         type: 'GET',
-                        data:{from_date:from_date, to_date:to_date }
-                        //jangan lupa kirim parameter tanggal
+                        data: { from_date: from_date, to_date: to_date },
                     },
                     columns: [
-                        {
-                            data: 'user_id',
-                            name: 'user_id'
-                        },
-
-                        {
-                            data: 'name',
-                            name: 'name'
-                        },
-
-                        {
-                            data: 'phone',
-                            name: 'phone'
-                        },
-                        {
-                            data: 'address',
-                            name: 'address'
-                        },
-                        {
-
-                            data: 'service_items',
-                            name: 'service_items'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action'
-                        },
-
-
+                        { data: 'user_id', name: 'user_id' },
+                        { data: 'name', name: 'name' },
+                        { data: 'phone', name: 'phone' },
+                        { data: 'address', name: 'address' },
+                        { data: 'service_items', name: 'service_items', orderable: false, searchable: false },
+                        { data: 'action', name: 'action', orderable: false, searchable: false },
                     ],
-                    order: [
-                        [3, 'decs']
-                    ],
-
+                    order: [[3, 'desc']]
                 });
             }
         });
@@ -274,58 +259,72 @@
             // $('#button-simpan').val("create-post"); //valuenya menjadi create-post
             $('#id').val(''); //valuenya menjadi kosong
             $('#form-tambah').trigger("reset"); //mereset semua input dll didalamnya
-            $('#modal-judul-staff').html("Add Work Order"); //valuenya tambah pegawai baru
+            $('#modal-judul-staff').html("Add Work Orders"); //valuenya tambah pegawai baru
             $('#tambah-modal').modal('show'); //modal tampil
+            $('#id').val('');
+            $('#customername').val('');
+            $('#email').val('');
+            $('#phone').val('');
+            $('#address').val('');
+            $('#jenisac').val('');
+            $('#workorder').val('');
+            $('#deskripsi').val('');
+            $('#qtt').val('');
+            // $('#qtt').empty();
+
+
         });
 
+        $('#jenisac').on('change',function(){
+                var jenisac = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '/pricelist/kapasitas',
+                    data : {jenisac:jenisac},
+                    success:function(data){
+                        console.log(data);
+                        var isi_data =JSON.parse(data);
+                        $('#workorder').empty();
+                        $('#workorder').append('<option value="" disabled selected>Pilih Kapasitas AC</option>');
+                        isi_data.forEach(data => {
+                        $('#workorder').append(`<option value="${data['kapasitas']}">${data['kapasitas']}</option>`);
+                        });
 
-        //jalankan jquery validator terhadap setiap inputan dll dan eksekusi script ajax untuk simpan data
-        // if ($("#form-tambah").length > 0) {
-        //     $("#form-tambah").validate({
-        //         submitHandler: function (form) {
-        //             var actionType = $('#tombol-simpan').val();
-        //             $('#tombol-simpan').html('Sending..');
-        //             $.ajax({
-        //                 data: $('#form-tambah')
-        //                     .serialize(), //function yang dipakai agar value pada form-control seperti input, textarea, select dll dapat digunakan pada URL query string ketika melakukan ajax request
-        //                 url: "{{ route('workorder.store') }}", //url simpan data
-        //                 type: "POST", //karena simpan kita pakai method POST
-        //                 dataType: 'json', //data tipe kita kirim berupa JSON
+                    },
+                    error:function(data){
+                    }
+                });
+            });
 
-        //                 success: function (data) { //jika berhasil
-        //                     console.log(data);
-        //                     $('#form-tambah').trigger("reset"); //form reset
-        //                     $('#tambah-modal').modal('hide'); //modal hide
-        //                     $('#tombol-simpan').html('Simpan'); //tombol simpan
-        //                     var oTable = $('#table_workorder').dataTable(); //inialisasi datatable
-        //                         oTable.fnDraw(false); //reset datatable
-        //                     if(data.success){
-        //                         iziToast.success({ //tampilkan iziToast dengan notif data berhasil disimpan pada posisi kanan bawah
-        //                         title: data.success,
-        //                         message: '{{ Session('
-        //                         success ')}}',
-        //                         position: 'topRight'
-        //                         });
-        //                     }
-        //                     if(data.errors)
-        //                     {
-        //                         iziToast.error({ //tampilkan iziToast dengan notif data berhasil disimpan pada posisi kanan bawah
-        //                         title: data.errors,
-        //                         message: '{{ Session('
-        //                         success ')}}',
-        //                         position: 'topRight'
-        //                     });
-        //                     }
+        $('#workorder').on('change', function() {
+            var jenisac = $('#jenisac').val();
+            var kapasitas = $(this).val();
+            $('#deskripsi').empty().append('<option selected disabled>Loading...</option>');
 
-        //                 },
-        //                 error: function (data) { //jika error tampilkan error pada console
+            $.ajax({
+                type: 'GET',
+                url: 'pricelist/item',
+                data: { jenisac:jenisac, kapasitas: kapasitas },
+                success: function(data_deskripsi) {
+                    var isi_data =JSON.parse(data_deskripsi);
+                        $('#deskripsi').empty();
+                        $('#deskripsi').append('<option value="" disabled selected>Pilih Type Service</option>');
+                        isi_data.forEach(data_item_service => {
+                        $('#deskripsi').append(`<option value="${data_item_service['id']}">${data_item_service['deskripsi']}</option>`);
+                        });
+                }
+            });
+        });
 
-        //                 }
-        //             });
+        // $('#deskripsi').on('change', function() {
+        //     var jenisac = $('#jenisac').val();
+        //     var kapasitas = $(this).val();
+        //     $('#items').append(`
+        //     <option value="">misalkan</option>
+        //     `);
 
-        //         }
-        //     })
-        // }
+
+        // });
 
         if ($("#form-tambah-edit").length > 0) {
             $("#form-tambah-edit").validate({
@@ -341,6 +340,7 @@
 
                         success: function (data) {
                             //jika berhasil
+                            console.log(data);
                             $('#form-tambah-edit').trigger("reset"); //form reset
                             $('#tambah-modal').modal('hide'); //modal hide
                             $('#tombol-simpan').html('Simpan'); //tombol simpan
@@ -375,9 +375,9 @@
         //ketika class edit-post yang ada pada tag body di klik maka
         $('body').on('click', '.edit-post', function () {
             var data_id = $(this).data('id');
-
             $.get('workorder/edit/' + data_id,
             function (data) {
+                console.log(data);
                 $('#modal-judul-staff').html("Update Price List");
                 $('#btn-name').html("update"); //valuenya tambah
                 $('#tombol-simpan').val("edit-post");
@@ -385,16 +385,22 @@
                 $('#tambah-modal').modal('show'); //modal tampil
 
                 $('#id').val('');
-                $('#tipe').val('');
-                $('#kapasitas').val('');
+                $('#customername').val('');
+                $('#email').val('');
+                $('#phone').val('');
+                $('#address').val('');
+                $('#jenisac').val('');
+                $('#workorder').val('');
                 $('#deskripsi').val('');
-                $('#list_pekerjaan').val('');
-                $('#harga').val('');
+                $('#qtt').val('');
 
                 $('#id').val(data.id);
-                $('#tipe').val(data.tipe);
-                $('#kapasitas').val(data.kapasitas);
-                $('#deskripsi').val(data.deskripsi);
+                $('#customername').val(data.name);
+                $('#email').val(data.email);
+                $('#phone').val(data.phone);
+                $('#address').val(data.service_item[0]['deskripsi']);
+                $('#jenisac').val(data.kapasitas);
+                $('#deskripsi').val(data.deskripsi.tipe);
                 $('#list_pekerjaan').val(data.list_pekerjaan);
                 $('#harga').val(data.harga);
         })

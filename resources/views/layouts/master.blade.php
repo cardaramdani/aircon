@@ -12,15 +12,7 @@
 	<link rel="stylesheet" href="{{ URL::to('assets2/css/feathericon.min.css') }}">
 	<link rel="stylesheet" href="{{ URL::to('assets2/css/style.css') }}"> </head>
 
-    {{-- <link href="{{URL::to('assets1/css/plugins/dataTables/datatables.min.css')}}" rel="stylesheet"> --}}
-	{{-- <link rel="shortcut icon" type="image/x-icon" href="{{ URL::to('assets2/img/logo-ppm.png') }}"> --}}
-	{{-- <link rel="stylesheet" href="{{ URL::to('assets2/plugins/fontawesome/css/fontawesome.min.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
-	{{-- <link rel="stylehseet" href="https://cdn.oesmith.co.uk/morris-0.5.1.css"> --}}
-	{{-- <link rel="stylesheet" href="{{ URL::to('assets2/plugins/morris/morris.css') }}"> --}}
 	<link rel="stylesheet" type="text/css" href="{{ URL::to('assets2/css/bootstrap-datetimepicker.min.css') }}">
-	{{-- message toastr --}}
-	{{-- <link rel="stylesheet" href="{{ URL::to('assets2/css/toastr.min.css') }}"> --}}
 	<script src="{{ URL::to('assets2/js/toastr_jquery.min.js') }}"></script>
 	<script src="{{ URL::to('assets2/js/toastr.min.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css" integrity="sha256-pODNVtK3uOhL8FUNWWvFQK0QoQoV3YA9wGGng6mbZ0E=" crossorigin="anonymous" />
@@ -102,10 +94,12 @@
 	</div>
 
     <div class="sidebar" id="sidebar">
+        <!-- Tambahkan kode ini setelah elemen sidebar -->
+<div class="sidebar-overlay"></div>
         <div class="sidebar-inner slimscroll">
             <div id="sidebar-menu" class="sidebar-menu">
                 <ul>
-                    <li class="active"> <a href="{{route('home') }}"><i class="fa-regular fa-newspaper"></i><span>Dashboard</span></a> </li>
+                    <li class="active"> <a href="{{route('home') }}"><i class="fas fa-tv"></i><span>Dashboard</span></a> </li>
                     <li class="list-divider"></li>
                     <li class="">
                         <a href="{{route('pricelist.index') }}"><i class="fas fa-suitcase"></i> <span>Price List AC</span></a>
@@ -262,6 +256,19 @@
     <script src="{{URL::to('assets1/js/plugins/dataTables/dataTables.bootstrap4.min.js')}}"></script>
     //ini panggil jumlah notif
     <script type="text/javascript">
+    // Script untuk sidebar toggle
+        $(document).ready(function() {
+            // Toggle untuk mobile menu
+            $(document).on('click', '#mobile_btn', function(e) {
+                e.preventDefault();
+                $('body').toggleClass('slide-nav');
+                $('.sidebar-overlay').toggleClass('opened');
+                $('html').addClass('menu-opened');
+                return false;
+            });
+
+        });
+
          function loadDoc()
             {
                 setInterval(function()
@@ -351,6 +358,8 @@
             });
 
         </script>
+
+
 
 </body>
 

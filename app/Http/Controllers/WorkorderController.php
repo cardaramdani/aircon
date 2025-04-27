@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Workorder;
+use App\Models\Pricelist;
 use Validator;
 use DataTables;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class WorkorderController extends Controller
 {
@@ -15,45 +18,49 @@ class WorkorderController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->ajax()){
-            // Membuat query builder untuk Workorder
-            $query = Workorder::query();
-
-            // Jika request from_date ada value (datanya) maka
-            if(!empty($request->from_date))
-            {
-                // Jika tanggal awal (from_date) hingga tanggal akhir (to_date) adalah sama maka
-                if($request->from_date === $request->to_date){
-                    // Kita filter tanggalnya sesuai dengan request from_date
-                    $query->whereDate('created_at', '=', $request->from_date);
-                } else {
-                    $from_date = $request->from_date;
-                    $to_date = $request->to_date;
-                    $menitawal = "00:00:00";
-                    $menitakhir = "23:59:59";
-                    $awalkaping = $from_date . ' ' . $menitawal;
-                    $tungtungkaping = $to_date . ' ' . $menitakhir;
-                    // Kita filter dari tanggal awal ke akhir
-                    $query->whereBetween('created_at', [$awalkaping, $tungtungkaping]);
-                }
-            }
-
-            // Mengurutkan data berdasarkan created_at secara descending
-            $query->orderBy('created_at', 'desc');
-
-            return DataTables::of($query)
-                ->addColumn('action', function($data){
-                    $button = '<a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit </a>';
-                    $button .= '&nbsp;&nbsp;';
-                    $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>';
-                    return $button;
-                })
-                ->rawColumns(['action'])
-                ->addIndexColumn()
-                ->make(true);
+        if($request->ajax()) {
+            return $this->getWorkordersData($request);
         }
-
         return view('wo.index');
+    }
+
+    private function getWorkordersData(Request $request)
+    {
+        $query = Workorder::query()
+            ->select(['id', 'name', 'email', 'phone', 'address', 'service_items', 'created_at', 'user_id'])
+            ->when($request->filled(['from_date', 'to_date']), function($q) use ($request) {
+                if($request->from_date === $request->to_date) {
+                    return $q->whereDate('created_at', $request->from_date);
+                }
+
+                return $q->whereBetween('created_at', [
+                    "{$request->from_date} 00:00:00",
+                    "{$request->to_date} 23:59:59"
+                ]);
+            })
+            ->latest();
+
+        return DataTables::of($query)
+            ->addColumn('action', function($data) {
+                $button = '<a href="javascript:void(0)" data-toggle="tooltip" data-id="'.$data->id.'"
+                             class="edit btn btn-info btn-sm edit-post">
+                             <i class="far fa-edit"></i> Edit
+                          </a>';
+                $button .= '&nbsp;&nbsp;';
+                $button .= '<button type="button" name="delete" id="'.$data->id.'"
+                                   class="delete btn btn-danger btn-sm">
+                                   <i class="far fa-trash-alt"></i>
+                           </button>';
+                return $button;
+            })
+            ->editColumn('service_items', function($data) {
+                // Format service items untuk tampilan
+                return collect($data->service_items)->map(function($item) {
+                    return "{$item['deskripsi']} ({$item['kapasitas']}) x {$item['qty']}";
+                })->implode('<br>');
+            })
+            ->rawColumns(['action', 'service_items'])
+            ->make(true);
     }
 
     /**
@@ -74,7 +81,53 @@ class WorkorderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return response()->json(['success' => $request->deskripsi]);
+        $id = $request->id;
+        $rules =array(
+            'customername'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'address'=>'required',
+            'deskripsi'=>'required',
+            // 'service_items' => 'required|array',
+            // 'service_items.*.id' => 'exists:pricelists,id',
+            // 'service_items.*.qty' => 'required|integer|min:1',
+        );
+        $error = Validator::make($request->all(), $rules);
+
+        if($error->fails())
+        {
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+        $serviceItems = Pricelist::where('id', $request->deskripsi)->get();
+
+        $serviceItemsData = [];
+
+        foreach ($serviceItems as $item) {
+        // $qty = $validated['service_items'][$item->id]['qty'];
+
+        // foreach ($validated['service_items'] as $item) {
+            $serviceItem = Pricelist::find($item['id']);
+            $serviceItemsData[] = [
+                'id' => $serviceItem->id,
+                'deskripsi' => $serviceItem->deskripsi,
+                'kapasitas' => $serviceItem->kapasitas,
+                'harga' => $serviceItem->harga,
+                'qty' => $request->qty,
+            ];
+        }
+
+        $data =array(
+            'name'=> $request['customername'],
+            'email'=> $request['email'],
+            'phone'=> $request['phone'],
+            'address'=> $request['address'],
+            'service_items'=> $serviceItemsData,
+
+        );
+        $data = Workorder::updateOrCreate(['id' => $id], $data);
+        return response()->json(['success' => 'Data berhasil disimpan']);
+
     }
 
     /**
@@ -96,7 +149,10 @@ class WorkorderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id' => $id);
+        $post  = Workorder::where($where)->first();
+        // $data = $post->users->name;
+        return response()->json($post, 200);
     }
 
     /**

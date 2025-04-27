@@ -1,72 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
+        <!-- Optimized Meta Description -->
+        <meta name="description" content="AirConPro - Jasa service AC terbaik di Jakarta & Tangerang. Teknisi profesional, layanan bergaransi 24/7. Hubungi ☎ 082298520919 sekarang!">
+        <meta name="keywords" content="service ac jakarta, service ac tangerang, teknisi ac, perbaikan ac, instalasi ac, service ac murah, cuci ac, isi freon ac, maintenance AC">
+
+        <!-- Robots Directive -->
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+        <meta name="author" content="AirConPro Service AC" />
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://airconpro.engineeringlife.id">
+
+        <!-- Preload CSS & JS -->
+        <link rel="preload" href="css/styles.css" as="style">
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" as="script">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="Jasa Service AC Jakarta & Tangerang | AirConPro ✓ Bergaransi">
+        <meta property="og:description" content="Layanan service AC terbaik di Jakarta & Tangerang. Teknisi berpengalaman, bergaransi, layanan cepat 24/7.">
+        <meta property="og:image" content="https://airconpro.engineeringlife.id/assets/img/ac-split-wall.jpg">
+        <meta property="og:url" content="https://airconpro.engineeringlife.id">
+        <meta property="og:type" content="business.business">
+        <meta property="og:site_name" content="AirConPro">
+        <meta property="og:locale" content="id_ID" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Service AC Jakarta & Tangerang | AirConPro ✓ Bergaransi">
+        <meta name="twitter:description" content="Jasa service AC profesional, teknisi ahli, layanan cepat 24/7. Hubungi ☎ 082298520919">
+        <meta name="twitter:image" content="https://airconpro.engineeringlife.id/assets/img/ac-split-wall.jpg">
+        <!-- Mobile-Friendly Tags -->
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="HandheldFriendly" content="true" />
+
+        <!-- Location-Specific SEO -->
+        <meta name="geo.region" content="ID-JK" />
+        <meta name="geo.placename" content="Jakarta, Tangerang" />
+        <meta name="geo.position" content="-6.191639,106.690992" />
+        <meta name="ICBM" content="-6.191639, 106.690992" />
+        <!-- Font Awesome -->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" />
+
+        <!-- Bootstrap & Core CSS -->
         <link href="css/styles.css" rel="stylesheet" />
-
-            <!-- Existing meta tags -->
-
-            <!-- Enhanced meta description -->
-            <meta name="description" content="AirConPro - Jasa service AC profesional di Jakarta dan Tangerang. Layanan service AC terpercaya, bergaransi, teknisi berpengalaman. Spesialis AC split wall, cassette, ducting. Tersedia 24/7 ☎ 082298520919" />
-
-            <!-- Additional meta tags for SEO -->
-            <meta name="keywords" content="service ac jakarta, service ac tangerang, jasa service ac, teknisi ac, perbaikan ac, maintenance ac, instalasi ac baru, service ac murah, service ac 24 jam" />
-            <meta name="robots" content="index, follow" />
-            <meta name="author" content="AirConPro" />
-
-            <!-- Open Graph tags for social media -->
-            <meta property="og:title" content="Jasa Service AC Profesional Jakarta & Tangerang | AirConPro" />
-            <meta property="og:description" content="Layanan service AC terpercaya di Jakarta dan Tangerang. Teknisi berpengalaman, bergaransi, tersedia 24/7. Hubungi 082298520919" />
-            <meta property="og:image" content="https://airconpro.com/assets/img/logo.jpg" />
-            <meta property="og:url" content="https://airconpro.com" />
-
-            <!-- Schema.org markup for Google -->
-            <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "AirConPro",
-              "image": "https://airconpro.com/assets/img/logo.jpg",
-              "description": "Jasa service AC profesional di Jakarta dan Tangerang dengan teknisi berpengalaman",
-              "address": {
+        <!-- Schema Markup JSON-LD -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "AirConPro",
+            "url": "https://airconpro.engineeringlife.id",
+            "image": "https://airconpro.engineeringlife.id/assets/img/ac-split-wall.jpg",
+            "description": "Jasa service AC profesional di Jakarta & Tangerang dengan teknisi berpengalaman. Layanan bergaransi 24/7. Hubungi ☎ 082298520919.",
+            "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Jakarta Barat",
-                "addressLocality": "Jakarta",
-                "addressRegion": "DKI Jakarta",
-                "postalCode": "11460",
+                "streetAddress": "Jl. Raya Cipondoh",
+                "addressLocality": "Tangerang",
+                "addressRegion": "Banten",
+                "postalCode": "15146",
                 "addressCountry": "ID"
-              },
-              "geo": {
+            },
+            "telephone": "+6282298520919",
+            "openingHours": "Mo-Su 00:00-23:59",
+            "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": -6.1751,
-                "longitude": 106.8272
-              },
-              "url": "https://airconpro.com",
-              "telephone": "+6282298520919",
-              "priceRange": "Rp100.000 - Rp5.000.000",
-              "openingHours": "Mo-Su 00:00-24:00",
-              "sameAs": [
+                "latitude": "-6.1916387614380834",
+                "longitude": "106.69099229462232"
+            },
+            "sameAs": [
                 "https://www.instagram.com/airconpro_services/",
                 "https://www.tiktok.com/@airconpro_services"
-              ]
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "1256",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": "Budi Santoso",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "reviewBody": "Pelayanan AirConPro sangat memuaskan! Teknisi ramah dan profesional."
+                },
+
+                {
+                    "@type": "Review",
+                    "author": "Siti Nurhaliza",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "reviewBody": "AC saya dingin kembali setelah diservice oleh AirConPro. Recommended!"
+                }
+            ],
+            "areaServed": [
+            {
+                "@type": "City",
+                "name": "Jakarta Barat",
+                "containedIn": "Jakarta"
+            },
+            {
+                "@type": "City",
+                "name": "Tangerang",
+                "containedIn": "Banten"
+            }
+        ],
+        }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": "Berapa biaya service AC?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Biaya service AC mulai dari Rp.85.000 tergantung jenis layanan. Kami menawarkan paket lengkap termasuk cleaning, cek freon, dan pemeliharaan berkala."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Apakah ada garansi untuk service AC?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Ya, kami memberikan garansi service hingga 1 bulan untuk setiap perbaikan AC yang kami lakukan."
+                    }
+                }]
             }
             </script>
 
-            <title>Jasa Service AC Jakarta & Tangerang | Teknisi Profesional 24/7 | AirConPro</title>
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "serviceType": "AC Service",
+                    "provider": {
+                        "@type": "LocalBusiness",
+                        "name": "AirConPro"
+                    },
+                    "areaServed": {
+                        "@type": "City",
+                        "name": ["Jakarta Barat", "Kota Tangerang"]
+                    },
+                    "hasOfferCatalog": {
+                        "@type": "OfferCatalog",
+                        "name": "Layanan Service AC",
+                        "itemListElement": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Cuci AC",
+                                    "description": "Pembersihan lengkap indoor dan outdoor unit"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": "Isi Freon AC",
+                                    "description": "Pengecekan dan pengisian freon AC"
+                                }
+                            }
+                        ]
+                    }
+                }
+                </script>
 
+        <title>Jasa Service AC Jakarta & Tangerang | Teknisi Profesional 24/7 | AirConPro</title>
     </head>
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -115,35 +234,31 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
-            <h1>Jasa Service AC Professional Jakarta & Tangerang</h1>
-            <section class="services">
-                <h2>Layanan Service AC Kami</h2>
-                <div class="service-item">
-                    <h3>Service Maintenance Berkala</h3>
-                    <p>Layanan lengkap maintenance AC meliputi:</p>
-                    <!-- Content -->
+        <header class="masthead" role="banner">
+            <div class="container">
+                <!-- Add gradient overlay for better text readability -->
+                <div class="header-overlay">
+                    <h1 class="text-white mb-4">Jasa Service AC Professional Jakarta & Tangerang</h1>
+                    <div class="header-cta">
+                        <h2 class="text-white mb-3">Layanan 24/7 Siap Membantu Anda</h2>
+                        <a href="tel:+6282298520919" class="btn btn-primary btn-xl text-uppercase fw-bold">
+                            <i class="fas fa-phone me-2"></i>Hubungi Kami
+                        </a>
+                        <p class="text-white mt-3">Respons Cepat dalam 60 Menit</p>
+                    </div>
                 </div>
-            </section>
-
-
-            {{-- <div class="container">
-                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587); ">Jasa Service AC Daerah Tangerang</h1></div>
-                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Barat</h1></div>
-                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Utara</h1></div>
-                <div class="masthead-subheading"><h1 style="background-color: rgba(227, 221, 221, 0.587);">Jasa Service AC Daerah Jakarta Pusat</h1></div>
-
-            </div> --}}
+            </div>
         </header>
+
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Services</h2>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
+                <div class="row text-center" >
+                    <div class="col-md-4 ">
+                        <span class="fa-stack fa-4x" >
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
                             <i class="fa-solid fa-snowflake fa-stack-1x fa-inverse"></i>
                         </span>
@@ -160,6 +275,7 @@
                         <h4 class="my-3">Instalasi Baru</h4>
                         <p class="text-muted">Jasa Pemasangan Unit Baru</p>
                     </div>
+
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -168,6 +284,7 @@
                         <h4 class="my-3">Bongkar Pasang Instalasi</h4>
                         <p class="text-muted">Jasa Bongkar Unit Lama dan Pasang Unit Baru atau Reposisi Unit AC</p>
                     </div>
+
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -176,6 +293,7 @@
                         <h4 class="my-3">Overhoul Indoor/Outdoor Unit</h4>
                         <p class="text-muted">Jasa Overhoul Indoor atau Outdoor Unit, penggantian unit kompresor</p>
                     </div>
+
                     <div class="col-md-4">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -184,9 +302,11 @@
                         <h4 class="my-3">Perbaikan Instalasi Pipa/Refrigerant</h4>
                         <p class="text-muted">Perbaikan dengan pengelasan pipa, perbaikan dengan pengelasan pada area indoor atau outdoor unit</p>
                     </div>
+
                 </div>
             </div>
         </section>
+
         <!-- Portfolio Grid-->
         <section class="page-section bg-light" id="portfolio">
             <div class="container">
@@ -203,8 +323,8 @@
                                 </div>
                                 <img src="assets/img/portfolio/1.jpg"
                                     alt="Service AC Tangerang - Cleaning Indoor Unit AC Split Wall"
-                                    width="800"
-                                    height="600"
+                                    width="400"
+                                    height="400"
                                     loading="lazy" />
                             </a>
                             <div class="portfolio-caption">
@@ -224,8 +344,8 @@
                                 <!-- Update all image tags with proper alt texts -->
                                 <img src="assets/img/portfolio/2.jpg"
                                     alt="Service AC Tangerang - Cleaning Outdoor Unit AC Split Wall"
-                                    width="800"
-                                    height="600"
+                                    width="400"
+                                    height="400"
                                     loading="lazy" />
                             </a>
                             <div class="portfolio-caption">
@@ -243,8 +363,8 @@
                                 </div>
                                 <img src="assets/img/portfolio/3.jpg"
                                     alt="Service AC Tangerang - Penambahan Freon AC Split Wall"
-                                    width="800"
-                                    height="600"
+                                    width="400"
+                                    height="400"
                                     loading="lazy" />
 
                             </a>
@@ -369,53 +489,100 @@
 
         <section class="page-section bg-light" id="pricelist">
             <div class="container">
-                <div class="text-center">
+                <div class="text-center mb-5">
                     <h2 class="section-heading text-uppercase">Price List Jasa Service AC</h2>
+                    <p class="text-muted">Pilih Layanan Sesuai Kebutuhan Anda</p>
+                    <p class="text-muted">Lalu isi kontak anda dan checkout</p>
                 </div>
 
-                <form action="{{ route('checkout') }}" method="POST">
+                <form action="{{ route('checkout') }}" method="POST" id="checkoutForm">
                     @csrf
-                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- Price Cards -->
+                    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
                         @foreach ($prices as $price)
-                            <div class="col">
-                                <div class="card h-100">
-                                    <img src="assets/img/ac-split-wall.jpg" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $price->deskripsi }}</h5>
-                                        <p class="card-text">{{ $price->list_pekerjaan }}</p>
+                        <div class="col">
+                            <div class="price-card h-100">
+                                <div class="card-header  text-white text-center py-3" style="background-color: #0066ff">
+                                    <h5 class="mb-0">{{ $price->tipe }} {{ $price->kapasitas }}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <img src="assets/img/ac-split-wall.jpg" class="img-fluid rounded" alt="{{ $price->tipe }}">
                                     </div>
-                                    <div class="card-footer">
-                                        <small class="text-body-secondary">{{ $price->tipe }} {{ $price->kapasitas }} : Rp. {{ $price->harga }}</small>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="service_items[{{ $price->id }}][id]" value="{{ $price->id }}" id="service_{{ $price->id }}">
-                                            <label class="form-check-label" for="service_{{ $price->id }}">Pilih Jasa</label>
-                                           <div class="col"> <label>Qty :</label>
-                                            <input type="number" class="form-control" name="service_items[{{ $price->id }}][qty]" min="1" value="1" placeholder="Jumlah">
-                                        </div></div>
+                                    <h3 class="price-tag text-center mb-3">
+                                        Rp. {{ number_format($price->harga, 0, ',', '.') }}
+                                    </h3>
+                                    <h5>{{ $price->deskripsi }}</h5>
+                                    <ul class="feature-list mb-4">
+                                        @foreach(explode(',', $price->list_pekerjaan) as $item)
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>{{ trim($item) }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <div class="service-selection">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox"
+                                                   name="service_items[{{ $price->id }}][id]"
+                                                   value="{{ $price->id }}"
+                                                   id="service_{{ $price->id }}">
+                                            <label class="form-check-label" for="service_{{ $price->id }}">
+                                                Pilih Layanan Ini
+                                            </label>
+                                        </div>
+                                        <div class="quantity-selector">
+                                            <label class="form-label">Jumlah Unit:</label>
+                                            <div class="input-group">
+                                                <button type="button" class="btn btn-outline-secondary qty-btn" onclick="decrementQty({{ $price->id }})">-</button>
+                                                <input type="number" class="form-control text-center"
+                                                       name="service_items[{{ $price->id }}][qty]"
+                                                       id="qty_{{ $price->id }}"
+                                                       min="1" value="1">
+                                                <button type="button" class="btn btn-outline-secondary qty-btn" onclick="incrementQty({{ $price->id }})">+</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
-                    <div class="mt-4">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama:</label>
-                            <input type="text" class="form-control" id="name" name="name" required autocomplete="off">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">Telepon:</label>
-                            <input type="text" class="form-control" id="phone" name="phone" required autocomplete="off">
-                        </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">Address:</label>
-                            <input type="text" class="form-control" id="address" name="address" required autocomplete="off">
-                        </div>
-                        <div class="row">
-                            <button type="submit" class="btn btn-primary" style="font-size: -webkit-xxx-large">Checkout</button>
+
+                    <!-- Customer Information Form -->
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="checkout-form bg-white p-4 rounded shadow-sm">
+                                <h3 class="text-center mb-4">Informasi Pelanggan</h3>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" name="name" required autocomplete="off">
+                                            <label for="name">Nama Lengkap</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="phone" name="phone" required autocomplete="off">
+                                            <label for="phone">Nomor Telepon</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="address" name="address" style="height: 100px" required></textarea>
+                                            <label for="address">Alamat Lengkap</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            <i class="fas fa-shopping-cart me-2"></i>Checkout
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -433,11 +600,170 @@
         </div>
 
         </section>
+
+
+        <section class="page-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-heading text-uppercase">Testimonial</h2>
+                    <p class="text-muted">Apa Kata Mereka Tentang Kami</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">SOFIYAWATI</h5>
+                                    <small class="text-muted">Jakarta Barat</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"okelah lumayan rapi yg saya seneng orgnya jujur sih"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">Sayyidah Umi azizah</h5>
+                                    <small class="text-muted">Jakarta Barat</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Mudah"n rapi terus ya buat pelangganya"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">saanih Official</h5>
+                                    <small class="text-muted">Jakarta Barat</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Pas bgt ada promo JD hemat hehe rapih sih krjaanny lumayan puas"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">Clara Hidayah</h5>
+                                    <small class="text-muted">Kota Tangerang</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"gokil abngnya rapi beut kaya ladusing"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">yusuf addriyansa</h5>
+                                    <small class="text-muted">Kota Tangerang</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Servis AC di sini mantap, pengerjaan memuaskan 👍"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">Adib Raka</h5>
+                                    <small class="text-muted">Jakarta Barat</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"pengerjaan cepet dan sangat rapih dalam pengerjaan. pokoknya top markocop"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="testimonial-card p-4 rounded shadow-sm">
+                            <div class="d-flex align-items-center mb-4">
+                                <img src="assets/img/user.jpg" class="rounded-circle" width="60" height="60" alt="Client">
+                                <div class="ms-3">
+                                    <h5 class="mb-0">Yoko eben Haezer hutagalung</h5>
+                                    <small class="text-muted">Kota Tangerang</small>
+                                </div>
+                            </div>
+                            <p class="mb-0">"Service rapi dan cepat"</p>
+                            <div class="text-warning mt-3">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more testimonials -->
+                </div>
+            </div>
+        </section>
+
+        <div class="related-services">
+            <h3>Layanan Terkait</h3>
+            <ul>
+                <li><a href="/service-ac/jakarta-barat">Service AC Jakarta Barat</a></li>
+                <li><a href="/service-ac/jakarta-utara">Service AC Jakarta Utara</a></li>
+                <li><a href="/service-ac/tangerang">Service AC Tangerang</a></li>
+            </ul>
+        </div>
+
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy;  AirconPro 2024</div>
+                    <div class="col-lg-4 text-lg-start">Copyright &copy;  AirconPro 2025</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/airconpro_services/" aria-label="Instagram">
                             <i class="fa-brands fa-instagram"></i>
@@ -532,14 +858,6 @@
             </div>
         </div>
 
-        <div class="related-services">
-            <h3>Layanan Terkait</h3>
-            <ul>
-                <li><a href="/service-ac-jakarta-barat">Service AC Jakarta Barat</a></li>
-                <li><a href="/service-ac-jakarta-utara">Service AC Jakarta Utara</a></li>
-                <li><a href="/service-ac-tangerang">Service AC Tangerang</a></li>
-            </ul>
-        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -550,39 +868,186 @@
     <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RL5M95KZQ"></script>
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-        gtag('config', 'G-0RL5M95KZQ');
+            gtag('config', 'G-0RL5M95KZQ');
+        </script>
+        <script>
+            function incrementQty(id) {
+                const input = document.getElementById(`qty_${id}`);
+                input.value = parseInt(input.value) + 1;
+            }
+
+            function decrementQty(id) {
+                const input = document.getElementById(`qty_${id}`);
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
+                }
+            }
+
+            // Form validation
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                let checked = false;
+
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) checked = true;
+                });
+
+                if (!checked) {
+                    e.preventDefault();
+                    alert('Silakan pilih minimal satu layanan');
+                }
+            });
         </script>
 
         @push('scripts')
         <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "AirConPro",
-            "image": "{{ asset('assets/img/logo.jpg') }}",
-            "description": "Jasa service AC profesional di Jakarta dan Tangerang dengan teknisi berpengalaman",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "jl kh amsir",
-                "addressLocality": "Cipondoh",
-                "addressRegion": "Kota Tangerang",
-                "postalCode": "15145",
-                "addressCountry": "ID"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -6.1916387614380834,
-                "longitude": 106.69099229462232
-            },
-            "url": "https://airconpro.engineeringlife.id",
-            "telephone": "+6282298520919",
-            "priceRange": "Rp100.000 - Rp5.000.000"
-        }
+            {
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                "name": "AirConPro Service AC",
+                "image": "{{ asset('assets/img/logo.jpg') }}",
+                "description": "Jasa service AC profesional di Tangerang dan Jakarta dengan teknisi berpengalaman, Layanan bergaransi, respons cepat, dan tersedia 24/7.",
+                "areaServed": [
+                    {
+                        "@type": "City",
+                        "name": "Jakarta Barat",
+                        "containedIn": "Jakarta"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Jakarta Utara",
+                        "containedIn": "Jakarta"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Tangerang",
+                        "containedIn": "Banten"
+                    }
+                ],
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "jl kh amsir",
+                    "addressLocality": "Cipondoh",
+                    "addressRegion": "Kota Tangerang",
+                    "postalCode": "15145",
+                    "addressCountry": "ID"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": -6.1916387614380834,
+                    "longitude": 106.69099229462232
+                },
+                "serviceArea": {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": -6.1916387614380834,
+                        "longitude": 106.69099229462232
+                    },
+                    "geoRadius": "30000"
+                }
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "reviewCount": "1256",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "url": "https://airconpro.engineeringlife.id",
+                "hasMap": "https://www.google.com/maps/place/Airconpro+jasa+service+ac/@-6.1915788,106.6897102,18z/data=!4m14!1m7!3m6!1s0xbc1988fc605d64f:0x8422e5ecf5ef480b!2sAirconpro+jasa+service+ac!8m2!3d-6.1916641!4d106.6909923!16s%2Fg%2F11wf_8t4kh!3m5!1s0xbc1988fc605d64f:0x8422e5ecf5ef480b!8m2!3d-6.1916641!4d106.6909923!16s%2Fg%2F11wf_8t4kh?hl=id&authuser=0&entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D",
+                "telephone": "+6282298520919",
+                "priceRange": "Rp100.000 - Rp5.000.000",
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "priceCurrency": "IDR",
+                    "lowPrice": "100000",
+                    "highPrice": "5000000",
+                    "offerCount": "100"
+                },
+                "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                    "opens": "00:00",
+                    "closes": "23:59"
+                },
+                "sameAs": [
+                    "https://www.instagram.com/airconpro_services/",
+                    "https://www.tiktok.com/@airconpro_services"
+                ]
+            }
         </script>
         @endpush
+
+        <style>
+
+
+        .masthead {
+            position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../assets/img/ac-split-wall.jpg");
+        }
+
+        .header-overlay {
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        .header-cta {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+            .price-card {
+                border: none;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .price-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .price-tag {
+                color: #0066ff;
+                font-weight: bold;
+            }
+
+            .feature-list {
+                list-style: none;
+                padding: 0;
+            }
+
+            .feature-list li {
+                margin-bottom: 8px;
+                font-size: 0.9rem;
+            }
+
+            .quantity-selector {
+                margin-top: 1rem;
+            }
+
+            .qty-btn {
+                min-width: 40px;
+            }
+
+            .form-floating {
+                margin-bottom: 1rem;
+            }
+
+            .checkout-form {
+                border-top: 5px solid #0066ff;
+            }
+
+            @media (max-width: 768px) {
+                .price-card {
+                    margin-bottom: 2rem;
+                }
+            }
+            </style>
 
 </html>

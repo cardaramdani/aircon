@@ -10,6 +10,7 @@ use App\Http\Controllers\ServiceItemController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WorkorderController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceAreaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +22,19 @@ use App\Http\Controllers\ServiceController;
 |
 */
 Auth::routes();
+Route::get('/pricelist/kapasitas', [PricelistController::class, 'kapasitas'])->name('pricelist.kapasitas');
+Route::get('/pricelist/item', [PricelistController::class, 'item'])->name('pricelist.item');
+
 
 // In web.php routes file
 
-// Tambahkan di bawah route yang sudah ada
-Route::get('/service-ac-jakarta', [ServiceController::class, 'jakarta'])->name('service.jakarta');
-Route::get('/service-ac-tangerang', [ServiceController::class, 'tangerang'])->name('service.tangerang');
-Route::get('/service-ac-jakarta/{area}', [ServiceController::class, 'jakartaArea'])->name('service.jakarta.area');
+// Area Service Routes
+Route::prefix('service-ac')->group(function () {
+    Route::get('/jakarta-barat', [ServiceAreaController::class, 'jakartaBarat'])
+         ->name('service.jakarta-barat');
+    Route::get('/tangerang', [ServiceAreaController::class, 'tangerang'])
+         ->name('service.tangerang');
+});
 
 Route::get('/', [UserController::class, 'index']);
 Route::get('/jasa-service-ac-tangerang', [UserController::class, 'tangerang']);
@@ -44,7 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/pricelist', [PricelistController::class, 'index'])->name('pricelist.index');
     Route::get('/pricelist/create', [PricelistController::class, 'create'])->name('pricelist.create');
-    Route::get('/pricelist/show', [PricelistController::class, 'show'])->name('pricelist.show');
+    Route::get('/pricelist/show/{pricelist}', [PricelistController::class, 'show'])->name('pricelist.show');
     Route::get('/pricelist/edit/{id}', [PricelistController::class, 'edit'])->name('pricelist.edit');
     Route::post('/pricelist/store', [PricelistController::class, 'store'])->name('pricelist.store');
     Route::delete('/pricelist/delete/{id}', [PricelistController::class, 'destroy'])->name('pricelist.destroy');

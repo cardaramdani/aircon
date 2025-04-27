@@ -111,9 +111,28 @@ class PricelistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        // // $where = array('id' => $request);
+        // $post  = Pricelist::where('tipe', $pricelist);
+        // return response()->json($post, 200);
+    }
+    public function kapasitas(Request $request) {
+
+        $data = Pricelist::where('tipe', $request->jenisac)
+
+                        ->get();
+        echo json_encode($data);
+        // return response()->json(['success' => $data]);
+    }
+
+    public function item(Request $request) {
+
+        $data = Pricelist::where('tipe', $request->jenisac)
+                        ->where('kapasitas', $request->kapasitas)
+                        ->get();
+        echo json_encode($data);
+        // return response()->json(['success' => $data]);
     }
 
     /**
