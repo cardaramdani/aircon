@@ -497,12 +497,13 @@
 
                 <form action="{{ route('checkout') }}" method="POST" id="checkoutForm">
                     @csrf
+
                     <!-- Price Cards -->
                     <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
                         @foreach ($prices as $price)
                         <div class="col">
                             <div class="price-card h-100">
-                                <div class="card-header  text-white text-center py-3" style="background-color: #0066ff">
+                                <div class="card-header text-white text-center py-3" style="background-color: #0066ff">
                                     <h5 class="mb-0">{{ $price->tipe }} {{ $price->kapasitas }}</h5>
                                 </div>
                                 <div class="card-body">
@@ -518,17 +519,19 @@
                                         <li><i class="fas fa-check-circle text-success me-2"></i>{{ trim($item) }}</li>
                                         @endforeach
                                     </ul>
+
                                     <div class="service-selection">
                                         <div class="form-check mb-3">
                                             <input class="form-check-input" type="checkbox"
-                                                   name="service_items[{{ $price->id }}][id]"
-                                                   value="{{ $price->id }}"
+                                                   name="service_items[{{ $price->id }}][selected]"
+                                                   value="1"
                                                    id="service_{{ $price->id }}">
                                             <label class="form-check-label" for="service_{{ $price->id }}">
                                                 Pilih Layanan Ini
                                             </label>
                                         </div>
-                                        <div class="quantity-selector">
+
+                                        <div class="quantity-selector mb-3">
                                             <label class="form-label">Jumlah Unit:</label>
                                             <div class="input-group">
                                                 <button type="button" class="btn btn-outline-secondary qty-btn" onclick="decrementQty({{ $price->id }})">-</button>
@@ -539,6 +542,9 @@
                                                 <button type="button" class="btn btn-outline-secondary qty-btn" onclick="incrementQty({{ $price->id }})">+</button>
                                             </div>
                                         </div>
+
+                                        <!-- Hidden field untuk harga satuan dan subtotal (nanti diproses di backend/JS) -->
+                                        <input type="hidden" name="service_items[{{ $price->id }}][price]" value="{{ $price->harga }}">
                                     </div>
                                 </div>
                             </div>
@@ -551,6 +557,7 @@
                         <div class="col-md-8">
                             <div class="checkout-form bg-white p-4 rounded shadow-sm">
                                 <h3 class="text-center mb-4">Informasi Pelanggan</h3>
+
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
@@ -558,36 +565,50 @@
                                             <label for="name">Nama Lengkap</label>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="email" class="form-control" id="email" name="email" required autocomplete="off">
                                             <label for="email">Email</label>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="tel" class="form-control" id="phone" name="phone" required autocomplete="off">
                                             <label for="phone">Nomor Telepon</label>
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="form-floating">
                                             <textarea class="form-control" id="address" name="address" style="height: 100px" required></textarea>
                                             <label for="address">Alamat Lengkap</label>
                                         </div>
                                     </div>
+
+                                    <!-- Tambahan catatan pelanggan -->
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="customer_note" name="customer_note" style="height: 80px" placeholder="Catatan tambahan (opsional)"></textarea>
+                                            <label for="customer_note">Catatan Tambahan (Opsional)</label>
+                                        </div>
+                                    </div>
+
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary btn-lg w-100">
-                                            <i class="fas fa-shopping-cart me-2"></i>Checkout
+                                            <i class="fas fa-shopping-cart me-2"></i>Checkout Sekarang
                                         </button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </section>
+
 
         <!-- Contact-->
         <section class="page-section" id="contact">

@@ -79,14 +79,18 @@
                                         <form id="form-tambah" name="form-tambah" class="form-horizontal">
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <select class="custom-select" name="site" id="site" required>
                                                         </select>
-                                                    </div>
+                                                    </div> --}}
 
                                                     <div class="form-group">
                                                         <select id="department" name="department" class="custom-select" >
-                                                        <option value="0" disabled selected>Select Department</option>
+                                                        <option value="" disabled selected>Select Department</option>
+                                                        <option value="Teknik" >Teknik</option>
+                                                        <option value="Admin" >Admin</option>
+                                                        <option value="Finance" >Finance</option>
+
                                                         </select>
                                                     </div>
 
@@ -156,13 +160,13 @@
                                             <input type="hidden"  name="id" id="id" >
 
                                             <div class="row form-row">
-                                                <div class="col-sm-12">
+                                                {{-- <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label>Site</label>
                                                         <select class="custom-select" name="site" id="site_edit" required>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="col-12 col-sm-6">
                                                     <div class="form-group">
@@ -566,6 +570,7 @@
                     type: 'GET',
                     url: '/role/all',
                     success:function(data){
+                        console.log(data);
                         var isi_data =JSON.parse(data);
 
                         $('#role').empty();
@@ -576,21 +581,21 @@
                     },
             });
 
-            $.ajax({
-                    type: 'GET',
-                    url: '/get/site',
-                    success:function(data){
+            // $.ajax({
+            //         type: 'GET',
+            //         url: '/get/site',
+            //         success:function(data){
 
-                        var isi_data =JSON.parse(data);
+            //             var isi_data =JSON.parse(data);
 
-                        $('#site').empty();
-                        $('#site').append('<option value="0" disabled selected>Select Site</option>');
-                        isi_data.forEach(data => {
-                        $('#site').append(`<option value="${data['id']}">${data['site_name']}</option>`);
-                        });
+            //             $('#site').empty();
+            //             $('#site').append('<option value="0" disabled selected>Select Site</option>');
+            //             isi_data.forEach(data => {
+            //             $('#site').append(`<option value="${data['id']}">${data['site_name']}</option>`);
+            //             });
 
-                    },
-            });
+            //         },
+            // });
 
         });
 

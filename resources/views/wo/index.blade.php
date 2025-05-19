@@ -53,6 +53,9 @@
                                     <th class="text-left">Phone</th>
                                     <th class="text-left">Alamat</th>
                                     <th class="text-left">Service Items</th>
+                                    <th class="text-left">Schedule</th>
+                                    <th class="text-left">Catatan</th>
+                                    <th class="text-left">Status</th>
                                     <th class="text-left">Action</th>
                                 </tr>
                             </thead>
@@ -247,6 +250,24 @@
                         { data: 'phone', name: 'phone' },
                         { data: 'address', name: 'address' },
                         { data: 'service_items', name: 'service_items', orderable: false, searchable: false },
+                        { data: 'scheduled_at', name: 'scheduled_at', orderable: false, searchable: false },
+                        { data: 'complaint', name: 'complaint', orderable: false, searchable: false },
+                        {
+                            data: 'status',
+                            name: 'status',
+                            render: function(data, type, row) {
+                                // Tampilkan status dengan badge (opsional mempercantik)
+                                let badgeClass = 'secondary';
+                                switch(data) {
+                                    case 'pending': badgeClass = 'warning'; break;
+                                    case 'scheduled': badgeClass = 'info'; break;
+                                    case 'inprogress': badgeClass = 'primary'; break;
+                                    case 'done': badgeClass = 'success'; break;
+                                    case 'canceled': badgeClass = 'danger'; break;
+                                }
+                                return `<span class="badge badge-${badgeClass}">${data}</span>`;
+                            }
+                        },
                         { data: 'action', name: 'action', orderable: false, searchable: false },
                     ],
                     order: [[3, 'desc']]
@@ -389,20 +410,34 @@
                 $('#email').val('');
                 $('#phone').val('');
                 $('#address').val('');
-                $('#jenisac').val('');
-                $('#workorder').val('');
-                $('#deskripsi').val('');
+                $('#jenisac').empty();
+                $('#workorder').empty();
+                $('#deskripsi').empty();
                 $('#qtt').val('');
 
-                $('#id').val(data.id);
-                $('#customername').val(data.name);
-                $('#email').val(data.email);
-                $('#phone').val(data.phone);
-                $('#address').val(data.service_item[0]['deskripsi']);
-                $('#jenisac').val(data.kapasitas);
-                $('#deskripsi').val(data.deskripsi.tipe);
-                $('#list_pekerjaan').val(data.list_pekerjaan);
-                $('#harga').val(data.harga);
+                $('#id').val(data.workorder.id);
+                $('#customername').val(data.workorder.name);
+                $('#email').val(data.workorder.email);
+                $('#phone').val(data.workorder.phone);
+                $('#address').val(data.workorder.address);
+                $('#jenisac').append(`
+                            <option value="" >${data.items[0]['tipe']}</option>
+
+                    `);
+                $('#workorder').append(`
+                            <option value="" >${data.items[0]['kapasitas']}</option>
+
+                    `);
+                    $('#deskripsi').append(`
+                            <option value="" >${data.items[0]['deskripsi']}</option>
+
+                    `);
+                    $('#qty').append(`
+                            <option value="" >${data.workorder.service_items[0]['qtt']}</option>
+
+                    `);
+                // $('#qty').val(data.workorder.service_items[0]['qtt']);
+                $('#harga').val(data.workorder.harga);
         })
     });
 

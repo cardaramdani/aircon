@@ -27,7 +27,7 @@ class WorkorderController extends Controller
     private function getWorkordersData(Request $request)
     {
         $query = Workorder::query()
-            ->select(['id', 'name', 'email', 'phone', 'address', 'service_items', 'created_at', 'user_id'])
+            ->select(['id', 'name', 'email', 'phone', 'address', 'service_items', 'created_at', 'user_id','scheduled_at','complaint','status'])
             ->when($request->filled(['from_date', 'to_date']), function($q) use ($request) {
                 if($request->from_date === $request->to_date) {
                     return $q->whereDate('created_at', $request->from_date);
@@ -147,13 +147,29 @@ class WorkorderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function edit($id)
+    // {
+    //     $where = array('id' => $id);
+    //     $post[]  = Workorder::where($where)->first();
+    //     $item = Pricelist::where('id',$post['service_item'][0]['id'])->get();
+    //     $post['item'] =$item ;
+    //     // $data = $post->users->name;
+    //     return response()->json($post, 200);
+    // }
+
     public function edit($id)
     {
         $where = array('id' => $id);
-        $post  = Workorder::where($where)->first();
-        // $data = $post->users->name;
-        return response()->json($post, 200);
+        $workorder = Workorder::where($where)->first();
+        // $items = $workorder->service_items[0]['id'];
+        $items = Pricelist::where('id',$workorder['service_items'][0]['id'])->get();
+
+        return response()->json([
+            'workorder' => $workorder,
+            'items' => $items,
+        ], 200);
     }
+
 
     /**
      * Update the specified resource in storage.

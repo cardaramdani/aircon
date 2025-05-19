@@ -9,76 +9,98 @@ use App\Models\User;
 class CheckoutController extends Controller
 {
     public function checkout(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone' => 'required|string|max:15',
-            'address' => 'required|string|max:255',
-            'service_items' => 'required|array',
-            'service_items.*.id' => 'exists:pricelists,id',
-            'service_items.*.qty' => 'required|integer|min:1',
-        ]);
-        $serviceItems = Pricelist::whereIn('id', array_column($validated['service_items'], 'id'))->get();
+{
+    // Ambil semua service_items dari request
+    $allServiceItems = $request->input('service_items', []);
 
-        $serviceItemsData = [];
-
-        foreach ($serviceItems as $item) {
-        $qty = $validated['service_items'][$item->id]['qty'];
-
-        // foreach ($validated['service_items'] as $item) {
-            $serviceItem = Pricelist::find($item['id']);
-            $serviceItemsData[] = [
-                'id' => $serviceItem->id,
-                'deskripsi' => $serviceItem->deskripsi,
-                'kapasitas' => $serviceItem->kapasitas,
-                'harga' => $serviceItem->harga,
-                'qty' => $qty,
-            ];
+    // FILTER hanya yang dipilih (selected = 1)
+    $selectedItems = [];
+    foreach ($allServiceItems as $id => $item) {
+        if (isset($item['selected']) && $item['selected'] == 1) {
+            $selectedItems[$id] = $item;
         }
-
-        $workorder = Workorder::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'phone' => $validated['phone'],
-            'address' => $validated['address'],
-            'service_items' => $serviceItemsData,
-        ]);
-
-
-
-        $message = "Order baru:\n";
-        $message .= "Nama: {$validated['name']}\n";
-        $message .= "Email: {$validated['email']}\n";
-        $message .= "Telepon: {$validated['phone']}\n";
-        $message .= "Address: {$validated['address']}\n";
-        $message .= "Layanan:\n";
-
-        $totalPayment = 0; // Inisialisasi total pembayaran
-
-        foreach ($serviceItems as $item) {
-            $qty = $validated['service_items'][$item->id]['qty'];
-
-            // $qty = $request->input("qty_{$item->id}"); // Mengambil kuantitas dari input form
-            $totalPrice = $item->harga * $qty; // Menghitung harga total per item
-            $totalPayment += $totalPrice; // Menambahkan harga total per item ke total pembayaran
-            $message .= "# {$item->deskripsi}, {$item->kapasitas} (Rp. {$item->harga}) x {$qty} = Rp. {$totalPrice}\n";
-            $message .= "- {$item->list_pekerjaan}\n";
-        }
-
-        $message .= "\n";
-        $message .= "Total Pembayaran: Rp. {$totalPayment}\n";
-        $message .= "\n";
-        $message .= "transfer via bank : \n";
-        $message .= "Mandiri : 1670001139079 carda ramdani\n";
-        $message .= "BCA : 5680477754 carda ramdani\n";
-        $message .= "Shopeepay : 082298520919 Sxxxxxxxxxxxxxxx\n";
-
-
-        $message = urlencode($message);
-        $adminPhone = '6282298520919';
-        $whatsappUrl = "https://api.whatsapp.com/send?phone={$adminPhone}&text={$message}";
-
-        return redirect($whatsappUrl);
     }
+
+    // Cek jika tidak ada yang dipilih
+    if (empty($selectedItems)) {
+        return back()->withErrors(['service_items' => 'Pilih setidaknya satu layanan.']);
+    }
+
+    // Lanjut validasi untuk data umum
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'required|string|max:15',
+        'address' => 'required|string|max:255',
+    ]);
+
+    // Ambil semua service item dari database berdasarkan ID
+    $serviceItemIds = array_keys($selectedItems);
+    $serviceItems = Pricelist::whereIn('id', $serviceItemIds)->get();
+
+    $serviceItemsData = [];
+    foreach ($serviceItems as $item) {
+        $qty = $selectedItems[$item->id]['qty'];
+
+        $serviceItemsData[] = [
+            'id' => $item->id,
+            'deskripsi' => $item->deskripsi,
+            'kapasitas' => $item->kapasitas,
+            'harga' => $item->harga,
+            'qty' => $qty,
+        ];
+    }
+
+    // Buat WorkOrder
+    // $workorder = Workorder::create([
+    //     'name' => $validated['name'],
+    //     'email' => $validated['email'],
+    //     'phone' => $validated['phone'],
+    //     'address' => $validated['address'],
+    //     'service_items' => $serviceItemsData,
+    // ]);
+
+    $workorder = Workorder::create([
+        'name' => $validated['name'],
+        'email' => $validated['email'],
+        'phone' => $validated['phone'],
+        'address' => $validated['address'],
+        'service_items' => $serviceItemsData,
+        'status' => 'pending', // default
+        'scheduled_at' => null, // nanti bisa diupdate
+        'complaint' => $request['customer_note'], // nanti bisa diupdate
+    ]);
+
+
+    // Format pesan WhatsApp
+    $message = "Order baru:\n";
+    $message .= "Nama: {$validated['name']}\n";
+    $message .= "Email: {$validated['email']}\n";
+    $message .= "Telepon: {$validated['phone']}\n";
+    $message .= "Address: {$validated['address']}\n";
+    $message .= "Layanan:\n";
+
+    $totalPayment = 0;
+
+    foreach ($serviceItems as $item) {
+        $qty = $selectedItems[$item->id]['qty'];
+        $totalPrice = $item->harga * $qty;
+        $totalPayment += $totalPrice;
+        $message .= "# {$item->deskripsi}, {$item->kapasitas} (Rp. {$item->harga}) x {$qty} = Rp. {$totalPrice}\n";
+        $message .= "- {$item->list_pekerjaan}\n";
+    }
+
+    $message .= "\nTotal Pembayaran: Rp. {$totalPayment}\n\n";
+    $message .= "Transfer via bank:\n";
+    $message .= "Mandiri: 1670001139079 Carda Ramdani\n";
+    $message .= "BCA: 5680477754 Carda Ramdani\n";
+    $message .= "Shopeepay: 082298520919 Sxxxxxxxxxxxxxxx\n";
+
+    $message = urlencode($message);
+    $adminPhone = '6281219925055';
+    $whatsappUrl = "https://api.whatsapp.com/send?phone={$adminPhone}&text={$message}";
+
+    return redirect($whatsappUrl);
+}
+
 }

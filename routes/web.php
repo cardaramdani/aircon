@@ -24,6 +24,7 @@ use App\Http\Controllers\ServiceAreaController;
 Auth::routes();
 Route::get('/pricelist/kapasitas', [PricelistController::class, 'kapasitas'])->name('pricelist.kapasitas');
 Route::get('/pricelist/item', [PricelistController::class, 'item'])->name('pricelist.item');
+// Route::get('role/all', [RolepermissionController::class,'show']);
 
 
 // In web.php routes file
@@ -81,6 +82,11 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/permission/edit/{permission}', [RolepermissionController::class, 'permissionedit']);
 		Route::delete('/rolepreset/delete/{role}', [RolepermissionController::class, 'destroy']);
 		Route::delete('/permission/delete/{role}', [RolepermissionController::class, 'permissiondestroy']);
+
+});
+
+Route::middleware(['Super-Admin'])->group(function () {
+    Route::get('role/all', [RolepermissionController::class,'show']);
 
 });
 

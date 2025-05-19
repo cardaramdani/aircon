@@ -15,6 +15,9 @@ class Workorder extends Model
         'phone',
         'address',
         'service_items',
+        'scheduled_at',
+        'complaint',
+        'status' //pending, scheduled, inprogress, done canceled
     ];
 
     protected $casts = [
